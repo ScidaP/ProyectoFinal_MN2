@@ -1,5 +1,6 @@
 from mpi4py import MPI
 import numpy as np
+import time
 
 def prod_vectorial(v1, v2, a, b):
     suma = 0
@@ -9,6 +10,7 @@ def prod_vectorial(v1, v2, a, b):
 
 def main():
     # Inicializamos MPI
+    start = time.time()
     comm = MPI.COMM_WORLD
     ID_Proceso = comm.Get_rank()
     TotalProcesos = comm.Get_size()
@@ -37,6 +39,8 @@ def main():
         print(f"\n El resultado es {resultado_t} \n")
     else:
         comm.send(resultado_i, dest=0, tag=0)
+
+    print("Tiempo: ", time.time()-start)
 
 if __name__ == "__main__":
     main()
