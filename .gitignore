@@ -4,7 +4,6 @@
 # ARCHIVOS SIN EXTENSION
 
 *
-!*/          # Excluye directorios de la regla general
 !*.*         # Excluye cualquier archivo que tenga extensión
 
 ### C ###
