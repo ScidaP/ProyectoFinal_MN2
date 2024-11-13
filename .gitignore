@@ -1,11 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,c,c++,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,c,c++,python
 
-# ARCHIVOS SIN EXTENSION
-
-*
-!*.*         # Excluye cualquier archivo que tenga extensión
-
 ### C ###
 # Prerequisites
 *.d
