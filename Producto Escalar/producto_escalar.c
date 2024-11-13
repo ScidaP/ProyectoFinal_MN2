@@ -15,6 +15,8 @@ int main(int argc, char **argv)
 	
 	int dest = 0; //Proceso que realizara las sumas
 	int tag;
+
+	double start_time, end_time, elapsed_time;
 	
 	MPI_Status status;
 
@@ -26,7 +28,10 @@ int main(int argc, char **argv)
 	/*  MPI  */
 	MPI_Init(&argc, &argv);              
     MPI_Comm_rank(MPI_COMM_WORLD, &ID_Proceso);  
-    MPI_Comm_size(MPI_COMM_WORLD, &TotalProcesos);     
+    MPI_Comm_size(MPI_COMM_WORLD, &TotalProcesos);
+
+	// Inicio del temporizador
+    start_time = MPI_Wtime();
 	
 
 	cant_pasos = tama / TotalProcesos; 	
@@ -50,8 +55,20 @@ int main(int argc, char **argv)
 
 	else
 		MPI_Send(&resultado_i, 1, MPI_INT, dest, tag, MPI_COMM_WORLD);
-	
+
+	end_time = MPI_Wtime();
+
+	elapsed_time = end_time - start_time;
+
+	double max_time;
+    MPI_Reduce(&elapsed_time, &max_time, 1, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
+
+	if (ID_Proceso == 0) {
+	        printf("Tiempo total de ejecución = %f segundos\n", max_time);
+    }
+
 	MPI_Finalize();
+
 	return 0;
 }
 
