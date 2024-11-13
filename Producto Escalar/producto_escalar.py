@@ -10,7 +10,7 @@ def prod_vectorial(v1, v2, a, b):
 
 def main():
     # Inicializamos MPI
-    start = time.time()
+    start_time = MPI.Wtime()
     comm = MPI.COMM_WORLD
     ID_Proceso = comm.Get_rank()
     TotalProcesos = comm.Get_size()
@@ -40,7 +40,13 @@ def main():
     else:
         comm.send(resultado_i, dest=0, tag=0)
 
-    print("Tiempo: ", time.time()-start)
+    end_time = MPI.Wtime()
+    execution_time = end_time - start_time
+    total_execution_time = comm.reduce(execution_time, op=MPI.MAX, root=0)
+
+    # El proceso raíz (0) imprime el tiempo total de ejecución
+    if ID_Proceso == 0:
+        print(f"Tiempo total de ejecución: {total_execution_time} segundos")
 
 if __name__ == "__main__":
     main()
