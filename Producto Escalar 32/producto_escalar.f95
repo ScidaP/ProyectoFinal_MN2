@@ -2,7 +2,7 @@ program prod_vectorial_mpi
     use mpi
     implicit none
 
-    integer, parameter :: N = 30  ! Tamaño del vector
+    integer, parameter :: N = 32  ! Tamaño del vector
     integer :: arre1(N), arre2(N), cant_pasos, tama, nva_a, nva_b
     integer :: ID_Proceso, TotalProcesos, ierr, i
     integer :: resultado_i, resultado_t
