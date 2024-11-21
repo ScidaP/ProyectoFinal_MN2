@@ -3,7 +3,7 @@ import numpy as np
 import time
 
 # Definir el tamaño de los arreglos
-TAMANIO = 20000
+TAMANIO = 25200
 
 # Función para llenar un arreglo con valores
 def llenar_matriz(tamanio):

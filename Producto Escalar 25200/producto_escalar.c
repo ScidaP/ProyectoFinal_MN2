@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <mpi.h>
 
-#define TAMANIO 20000
+#define TAMANIO 25200
 
 // Función para llenar un arreglo con valores
 void llenar_matriz(int matriz[], int tamanio) {
