@@ -34,7 +34,6 @@ def main():
     # Calcular el producto vectorial parcial
     start_time = MPI.Wtime()
     resultado_i = prod_vectorial(arre1, arre2, nva_a, nva_b)
-    print(f"Soy el proceso {ID_Proceso} y mi suma parcial es {resultado_i}")
 
     # Reducir los resultados parciales al proceso 0
     resultado_t = comm.reduce(resultado_i, op=MPI.SUM, root=0)
@@ -45,8 +44,7 @@ def main():
     max_time = comm.reduce(elapsed_time, op=MPI.MAX, root=0)
 
     if ID_Proceso == 0:
-        print(f"\nEl resultado total es {resultado_t}")
-        print(f"Tiempo total de ejecución = {max_time} segundos")
+        print(max_time)
 
 if __name__ == "__main__":
     main()

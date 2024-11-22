@@ -58,15 +58,12 @@ int main(int argc, char **argv) {
     // Cálculo del producto vectorial parcial
     resultado_i = prod_vectorial(arre1, arre2, nva_a, nva_b);
 
-    printf("Soy el proceso %d y mi suma parcial es %li\n", ID_Proceso, resultado_i);
-
     if (ID_Proceso == 0) {
         resultado_t = resultado_i;
         for (int i = 1; i < TotalProcesos; i++) {
             MPI_Recv(&resultado_i, 1, MPI_LONG, i, tag, MPI_COMM_WORLD, &status);
             resultado_t += resultado_i;
         }
-        printf("\nEl resultado total es %lld\n", resultado_t);
     } else {
         MPI_Send(&resultado_i, 1, MPI_LONG, dest, tag, MPI_COMM_WORLD);
     }
@@ -81,7 +78,7 @@ int main(int argc, char **argv) {
     MPI_Reduce(&elapsed_time, &max_time, 1, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
 
     if (ID_Proceso == 0) {
-        printf("Tiempo total de ejecución = %f segundos\n", max_time);
+        printf("%f\n", max_time);
     }
 
     MPI_Finalize();
