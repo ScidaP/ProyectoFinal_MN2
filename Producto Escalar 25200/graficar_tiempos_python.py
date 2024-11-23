@@ -86,9 +86,9 @@ for i, avg in enumerate(promedios):
     plt.scatter(N_Proc[i], avg, color=colors[i])
     # Agregar el texto al lado del punto
     if i < 3:  # Para los primeros 3 elementos
-        texto = f'{avg:.2f}s (Notebook)'
+        texto = f'{avg:.4f}s (Notebook)'
     else:      # Para los últimos 3 elementos
-        texto = f'{avg:.2f}s (Clúster)'
+        texto = f'{avg:.4f}s (Clúster)'
     plt.text(N_Proc[i] + 0.5, avg, texto, fontsize=9, color=colors[i])
 
 # Configurar la gráfica
