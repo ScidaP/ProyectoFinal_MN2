@@ -29,7 +29,12 @@ def main():
     # División del trabajo
     cant_pasos = TAMANIO // TotalProcesos
     nva_a = ID_Proceso * cant_pasos
-    nva_b = (ID_Proceso + 1) * cant_pasos
+    
+    if (ID_Proceso == TotalProcesos - 1):
+        # El último proceso toma todos los elementos restantes
+        nva_b = TAMANIO
+    else:
+        nva_b = (ID_Proceso + 1) * cant_pasos
 
     # Calcular el producto vectorial parcial
     start_time = MPI.Wtime()

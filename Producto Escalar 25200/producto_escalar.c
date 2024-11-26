@@ -53,7 +53,13 @@ int main(int argc, char **argv) {
     cant_pasos = tama / TotalProcesos;
 
     nva_a = ID_Proceso * cant_pasos;
-    nva_b = (ID_Proceso + 1) * cant_pasos;
+    
+    if (ID_Proceso == TotalProcesos - 1){
+        // Si es el último proceso, toma todos los elementos restantes
+        nva_b = tama;
+    } else {
+        nva_b = (ID_Proceso + 1) * cant_pasos;
+    }
 
     // Cálculo del producto vectorial parcial
     resultado_i = prod_vectorial(arre1, arre2, nva_a, nva_b);
