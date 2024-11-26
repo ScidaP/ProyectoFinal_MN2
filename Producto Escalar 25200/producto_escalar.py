@@ -44,7 +44,7 @@ def main():
     max_time = comm.reduce(elapsed_time, op=MPI.MAX, root=0)
 
     if ID_Proceso == 0:
-        print(max_time)
+        print(f'{max_time}, ', end="")
 
 if __name__ == "__main__":
     main()

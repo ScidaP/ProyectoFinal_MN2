@@ -78,7 +78,7 @@ int main(int argc, char **argv) {
     MPI_Reduce(&elapsed_time, &max_time, 1, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
 
     if (ID_Proceso == 0) {
-        printf("%f\n", max_time);
+        printf("%f, ", max_time);
     }
 
     MPI_Finalize();
