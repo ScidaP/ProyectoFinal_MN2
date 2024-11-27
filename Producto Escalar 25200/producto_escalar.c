@@ -5,9 +5,9 @@
 #define TAMANIO 25200
 
 // Función para llenar un arreglo con valores
-void llenar_arreglo(int matriz[], int tamanio) {
+void llenar_arreglo(int arre[], int tamanio) {
     for (int i = 0; i < tamanio; i++) {
-        matriz[i] = i + 1; // Llena con valores consecutivos, puedes cambiar esta lógica si es necesario
+        arre[i] = i + 1; // Llena con valores consecutivos, puedes cambiar esta lógica si es necesario
     }
 }
 
