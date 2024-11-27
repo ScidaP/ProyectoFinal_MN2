@@ -5,7 +5,7 @@ import time
 TAMANIO = 25200
 
 # Función para llenar un arreglo con valores
-def llenar_matriz(tamanio):
+def llenar_arreglo(tamanio):
     return np.arange(1, tamanio + 1)
 
 # Función para calcular el producto vectorial
@@ -14,8 +14,8 @@ def prod_vectorial(v1, v2):
 
 def main():
     # Crear y llenar las matrices
-    arre1 = llenar_matriz(TAMANIO)
-    arre2 = llenar_matriz(TAMANIO)
+    arre1 = llenar_arreglo(TAMANIO)
+    arre2 = llenar_arreglo(TAMANIO)
 
     # Medir el tiempo de ejecución
     start_time = time.time()

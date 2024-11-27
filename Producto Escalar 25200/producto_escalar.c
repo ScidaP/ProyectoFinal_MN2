@@ -5,7 +5,7 @@
 #define TAMANIO 25200
 
 // Función para llenar un arreglo con valores
-void llenar_matriz(int matriz[], int tamanio) {
+void llenar_arreglo(int matriz[], int tamanio) {
     for (int i = 0; i < tamanio; i++) {
         matriz[i] = i + 1; // Llena con valores consecutivos, puedes cambiar esta lógica si es necesario
     }
@@ -25,8 +25,8 @@ int main(int argc, char **argv) {
     int arre2[TAMANIO];
 
     // Llenar las matrices
-    llenar_matriz(arre1, TAMANIO);
-    llenar_matriz(arre2, TAMANIO);
+    llenar_arreglo(arre1, TAMANIO);
+    llenar_arreglo(arre2, TAMANIO);
 
     int dest = 0; // Proceso que recibirá los resultados parciales
     int tag = 0;  // Etiqueta de los mensajes
